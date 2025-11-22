@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# DEMO VIDEO:
+https://drive.google.com/file/d/1qi-uJQb0dSbVWO_FxgtKS9H4BgVbweCY/view?usp=sharing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# 401(k) Contribution Manager
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A modern, interactive single-page application for adjusting 401(k) contribution rates and projecting long-term retirement growth.
+Built with React + TypeScript + Vite, styled with Tailwind CSS, and powered by a lightweight Node + Express backend
 
-## React Compiler
+# Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Adjustable contribution type (percentage or fixed amount)
 
-## Expanding the ESLint configuration
+Real-time slider updates
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+YTD contributions + salary summary
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Long-term projection based on compound growth
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Persistent saving via backend API
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Fully local, no external services required
+
+# Projection Formula
+
+This project uses the standard future value of an ordinary annuity formula to model long-term retirement growth:
+```sh
+FV = C × [((1 + r)ᵗ – 1) / r]
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Where:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+C — Annual contribution
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+r — Annual growth rate (default 7%)
+
+t — Years until retirement
+
+This provides a realistic model of recurring annual contributions growing over time.
+
+# Getting Started
+
+1. Clone the repository
+```sh
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
 ```
+2. Install & run the backend
+```sh
+cd backend
+npm install
+npm start
+```
+3. Install & run the frontend
+Open a new terminal:
+```sh
+cd ..
+npm install
+npm run dev
+```
+Frontend will run at: http://localhost:5173
+
+<img width="941" height="334" alt="image" src="https://github.com/user-attachments/assets/eec65a79-7354-4917-9d61-0c3345730f74" />
+  
